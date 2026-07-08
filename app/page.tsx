@@ -1,105 +1,58 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <h1 className="text-5xl font-extrabold md:text-7xl">
-          Jason Victor
-        </h1>
+      <section className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-between gap-12 px-8 md:flex-row">
 
-        <p className="mt-6 text-xl text-blue-400">
-          Operations Leader • IT Professional • Problem Solver
-        </p>
+        <div className="max-w-2xl">
 
-        <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-300">
-          I help organizations improve operations through leadership,
-          technology, and efficient processes. My experience includes warehouse
-          operations, inventory management, database administration, and
-          technical support.
-        </p>
+          <p className="text-blue-400 text-lg uppercase tracking-widest">
+            Welcome
+          </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a
-            href="#experience"
-            className="rounded-lg bg-blue-600 px-6 py-3 font-semibold transition hover:bg-blue-700"
-          >
-            View Experience
-          </a>
+          <h1 className="mt-4 text-6xl font-extrabold">
+            Jason Victor
+          </h1>
 
-          <a
-            href="#contact"
-            className="rounded-lg border border-white px-6 py-3 font-semibold transition hover:bg-white hover:text-slate-950"
-          >
-            Contact Me
-          </a>
+          <h2 className="mt-5 text-2xl text-gray-300">
+            Operations Leader • IT Professional • Creative Problem Solver
+          </h2>
+
+          <p className="mt-8 text-lg leading-8 text-gray-400">
+            Helping organizations improve operations through leadership,
+            technology, and continuous improvement.
+          </p>
+
+          <div className="mt-10 flex gap-4">
+
+            <a
+              href="/resume"
+              className="rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-700 transition"
+            >
+              View Resume
+            </a>
+
+            <a
+              href="/about"
+              className="rounded-lg border border-white px-6 py-3 hover:bg-white hover:text-slate-950 transition"
+            >
+              About Me
+            </a>
+
+          </div>
+
         </div>
-      </section>
 
-      <section
-        id="about"
-        className="mx-auto max-w-5xl px-6 py-20"
-      >
-        <h2 className="mb-6 text-4xl font-bold">About Me</h2>
+        <Image
+          src="/profile.jpg"
+          alt="Jason Victor"
+          width={420}
+          height={420}
+          priority
+          className="rounded-full border-4 border-blue-500 object-cover shadow-2xl"
+        />
 
-        <p className="text-lg leading-8 text-gray-300">
-          I'm an operations-focused professional with experience in warehouse
-          operations, inventory management, database administration, and IT
-          support. I enjoy improving workflows, solving problems, and helping
-          teams succeed through organization and technology.
-        </p>
-      </section>
-
-      <section
-        id="experience"
-        className="mx-auto max-w-5xl px-6 py-20"
-      >
-        <h2 className="mb-8 text-4xl font-bold">Experience</h2>
-
-        <div className="space-y-8">
-          <div className="rounded-xl bg-slate-900 p-6">
-            <h3 className="text-2xl font-semibold">
-              Warehouse Clerk
-            </h3>
-            <p className="mt-2 text-gray-300">
-              Parts tracking, inventory documentation, forklift operation,
-              material handling, and operational support.
-            </p>
-          </div>
-
-          <div className="rounded-xl bg-slate-900 p-6">
-            <h3 className="text-2xl font-semibold">
-              Junior Database Analyst
-            </h3>
-            <p className="mt-2 text-gray-300">
-              Database maintenance, inventory reporting, data accuracy, and
-              operational analytics.
-            </p>
-          </div>
-
-          <div className="rounded-xl bg-slate-900 p-6">
-            <h3 className="text-2xl font-semibold">
-              Dispatcher
-            </h3>
-            <p className="mt-2 text-gray-300">
-              Emergency communications, coordination, documentation, and
-              high-pressure decision making.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        className="mx-auto max-w-5xl px-6 py-20"
-      >
-        <h2 className="mb-6 text-4xl font-bold">Contact</h2>
-
-        <p className="text-gray-300">
-          Email: Jasonvic97@gmail.com
-        </p>
-
-        <p className="text-gray-300">
-          GitHub: github.com/jasonvic97
-        </p>
       </section>
     </main>
   );
