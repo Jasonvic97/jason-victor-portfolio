@@ -1,0 +1,31 @@
+.hero-name {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: clamp(4rem, 12vw, 12rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+
+    background-image: url("/hero-collage.jpg");
+    background-size: 120%;
+    background-position: center;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    animation: panImage 25s ease-in-out infinite alternate;
+}
+
+@keyframes panImage {
+    from {
+        background-position: left center;
+    }
+
+    to {
+        background-position: right center;
+    }
+}
