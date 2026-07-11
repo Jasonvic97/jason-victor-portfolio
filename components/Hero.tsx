@@ -1,7 +1,9 @@
 import "@/app/hero.css";      
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6">
+    <section
+      id="home"
+    className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6">
 
       {/* Hero Text */}
       <div className="w-full text-center">

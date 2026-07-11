@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect , useState } from "react";
 
 export default function Navbar() {
@@ -32,40 +31,40 @@ export default function Navbar() {
 
         {/* Logo */}
 
-        {/*<Link
+        {/*<a
           href="/"
           className="text-2xl font-bold text-black tracking-tight"
         >
           Jason Victor
-        </Link> */}
+        </a> */}
 
         {/* Navigation */}
 
         <div className="flex items-center gap-10 text-sm font-medium uppercase tracking-wide">
 
-          <Link href="/" className="nav-link">
+          <a href="#home" className="nav-link">
             Home
-          </Link>
+          </a>
 
-          <Link href="#story" className="nav-link">
+          <a href="#my-story" className="nav-link">
            My Story
-          </Link>
+          </a>
 
-          <Link href="#experience" className="nav-link">
+          <a href="#experience" className="nav-link">
             Experience
-          </Link>
+          </a>
 
-          <Link href="#projects" className="nav-link">
+          <a href="#projects" className="nav-link">
             Projects
-          </Link>
+          </a>
 
-          <Link href="#resume" className="nav-link">
+          <a href="#resume" className="nav-link">
             Resume
-          </Link>
+          </a>
 
-          <Link href="#contact" className="nav-link">
+          <a href="#contact" className="nav-link">
             Contact
-          </Link>
+          </a>
 
         </div>
 

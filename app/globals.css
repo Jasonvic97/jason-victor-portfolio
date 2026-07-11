@@ -35,7 +35,7 @@ body {
   }
 }
 
-fadeup {
+.fadeup {
   animation: fadeup 1.2s ease forwards;
 }
 
@@ -64,3 +64,9 @@ fadeup {
 .nav-link:hover::after {
   transform: scaleX(1);
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
