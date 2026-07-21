@@ -47,18 +47,46 @@ export default function ExperienceModal({
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md px-6"
+     className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-md px-4 py-6"
     >
+      <div className="flex min-h-full items-center justify-center">
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl rounded-3xl bg-white p-12 shadow-2xl"
+        className="
+  relative
+  w-full
+  max-w-3xl
+  max-h-[90vh]
+  overflow-y-auto
+  rounded-3xl
+  bg-white
+  p-6
+  sm:p-8
+  md:p-12
+  shadow-2xl
+  "
       >
         {/* Close Button */}
 
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute right-6 top-6 rounded-full p-2 text-gray-500 transition duration-200 hover:bg-gray-100 hover:text-red-600"
+          className="
+sticky
+top-4
+ml-auto
+z-50
+flex
+rounded-full
+bg-white
+p-2
+text-gray-500
+shadow
+transition
+duration-200
+hover:bg-gray-100
+hover:text-red-600
+"
         >
           <X size={22} />
         </button>
@@ -71,19 +99,35 @@ export default function ExperienceModal({
 
         {/* Category */}
 
-        <h1 className="mt-3 text-5xl font-bold tracking-tight text-gray-900">
+        <h1 className="
+mt-3
+text-3xl
+sm:text-4xl
+md:text-5xl
+font-bold
+tracking-tight
+text-gray-900
+">
           {title}
         </h1>
 
         {/* Summary */}
 
-        <p className="mt-8 text-xl leading-9 text-gray-600">
+        <p className="
+mt-6
+text-base
+sm:text-lg
+md:text-xl
+leading-7
+sm:leading-8
+text-gray-600
+">
           {summary}
         </p>
 
         {/* Highlights */}
 
-        <section className="mt-14">
+        <section className="mt-10 md:mt-14">
 
           <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
             Highlights
@@ -94,7 +138,14 @@ export default function ExperienceModal({
             {highlights.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-4 text-lg text-gray-700"
+                className="
+flex
+items-start
+gap-3
+text-base
+sm:text-lg
+text-gray-700
+"
               >
                 <span className="mt-3 h-1.5 w-1.5 rounded-full bg-black"></span>
 
@@ -109,14 +160,29 @@ export default function ExperienceModal({
 
         {/* Skills */}
 
-        <section className="mt-14">
+        <section className="mt-10 md:mt-14">
 
           <div className="flex flex-wrap gap-3">
 
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-blue-200 px-5 py-2 text-sm font-medium text-blue-700 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:text-white"
+                className="
+rounded-full
+border
+border-blue-200
+px-4
+py-2
+text-xs
+sm:text-sm
+font-medium
+text-blue-700
+transition
+duration-200
+hover:-translate-y-0.5
+hover:bg-blue-600
+hover:text-white
+"
               >
                 {skill}
               </span>
@@ -128,6 +194,7 @@ export default function ExperienceModal({
 
         {/* Philosophy */}
 
+      </div>
       </div>
     </div>
   );
