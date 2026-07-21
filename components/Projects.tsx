@@ -15,11 +15,7 @@ const projects = [
     primary: {
       label: "GitHub",
       href: "https://github.com/Jasonvic97/jason-victor-portfolio",
-    },
-    secondary: {
-      label: "Live Demo",
-      href: "#",
-    },
+    },    
   },
   {
     title: "Victor Visuals",
@@ -40,7 +36,7 @@ const projects = [
       "A self-hosted Linux server for learning infrastructure and networking.",
     status: "Completed",
     statusStyle: "bg-blue-50 text-blue-700",
-    tech: ["Linux", "Networking", "SSH", ""],
+    tech: ["Linux", "Networking", "SSH", "CLI"],
     techStyle: "bg-emerald-50 text-emerald-700",
     primary: {
       label: "",
@@ -138,15 +134,6 @@ export default function Projects() {
                     <span className="font-medium text-gray-400">
                       {project.primary.label}
                     </span>
-                  )}
-
-                  {project.secondary && (
-                    <Link
-                      href={project.secondary.href}
-                      className="font-medium text-gray-700 transition-colors hover:text-gray-900"
-                    >
-                      {project.secondary.label}
-                    </Link>
                   )}
                 </div>
               </div>
