@@ -10,7 +10,7 @@ export default function Hero() {
     
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-4 sm:px-6"
     >
       {/* Victor Visuals Watermark */}
 
@@ -89,8 +89,7 @@ export default function Hero() {
             duration: 0.7,
             ease: "easeOut",
           }}
-          className="mt-8 flex items-center justify-center text-base font-semibold uppercase tracking-[0.6em]"
-        >
+          className="mt-8 flex flex-wrap items-center justify-center text-xs sm:text-sm md:text-base font-semibold uppercase tracking-[0.25em] sm:tracking-[0.4em] md:tracking-[0.6em]"        >
           <span className="text-blue-600">
             LEARN
           </span>
@@ -136,9 +135,12 @@ export default function Hero() {
             rounded-full
             border
             border-gray-300
-            px-8
-            py-4
-            text-sm
+            px-6
+            sm:px-8
+            py-3
+            sm:py-4
+            text-xs
+            sm:text-sm
             font-semibold
             uppercase
             tracking-[0.25em]
