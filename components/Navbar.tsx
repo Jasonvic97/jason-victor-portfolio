@@ -1,8 +1,9 @@
 "use client";
 
-import ResumeDropdown from "@/components/Resumedropdown";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import ResumeDropdown from "@/components/Resumedropdown";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { name: "My Story", href: "#my-story" },
@@ -13,14 +14,12 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,33 +31,22 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-start px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
 
         {/* Logo */}
+        <a href="#home" className="group flex items-center">
+          <Image
+            src="/images/logo.png"
+            alt="Jason Victor"
+            width={42}
+            height={42}
+            priority
+            className="opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+          />
+        </a>
 
-       <a
-  href="#home"
-  className="group flex items-center"
->
-  <Image
-    src="/images/logo.png"
-    alt="Jason Victor"
-    width={42}
-    height={42}
-    priority
-    className="
-      opacity-60 
-      transition-all
-      duration-300
-      group-hover:opacity-100
-      group-hover:scale-110"
-  />
-
-</a>
-
-        {/* Navigation */}
-
-        <div className="ml-58 flex items-center gap-9">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex flex-1 justify-center items-center gap-10 lg:gap-12">
 
           {links.map((link) => (
             <a
@@ -68,29 +56,46 @@ export default function Navbar() {
             >
               {link.name}
 
-              <span
-                className="
-                absolute
-                -bottom-2
-                left-0
-                h-[2px]
-                w-0
-                rounded-full
-                bg-[#C8A14D]
-                transition-all
-                duration-300
-                group-hover:w-full
-                "
-              />
-
+              <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-[#C8A14D] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
 
-          <ResumeDropdown/>
-
+          <ResumeDropdown />
         </div>
 
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-gray-700"
+        >
+          {open ? <X size={30} /> : <Menu size={30} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden border-t border-gray-200 bg-white shadow-lg">
+
+          <div className="flex flex-col py-4">
+
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.22em] text-gray-700 hover:bg-gray-100"
+              >
+                {link.name}
+              </a>
+            ))}
+
+            <div className="px-6 py-4">
+              <ResumeDropdown />
+            </div>
+
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
