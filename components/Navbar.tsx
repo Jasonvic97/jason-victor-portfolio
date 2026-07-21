@@ -1,81 +1,96 @@
 "use client";
 
-import { useEffect , useState } from "react";
+import ResumeDropdown from "@/components/Resumedropdown";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const links = [
+  { name: "My Story", href: "#my-story" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-  
-    window.addEventListener('scroll', handleScroll);
-  
-    return () => {
-  
-      window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-     className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-    scrolled 
-    ? "bg-white/70 backdrop-blur-md border-b border-gray-200 shadow-md"
-    : "bg-transparent"
-    }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "border-b border-gray-200 bg-white/80 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
     >
-
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-8 py-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-start px-8">
 
         {/* Logo */}
 
-        {/*<a
-          href="/"
-          className="text-2xl font-bold text-black tracking-tight"
-        >
-          Jason Victor
-        </a> */}
+       <a
+  href="#home"
+  className="group flex items-center"
+>
+  <Image
+    src="/images/logo.png"
+    alt="Jason Victor"
+    width={42}
+    height={42}
+    priority
+    className="
+      opacity-60 
+      transition-all
+      duration-300
+      group-hover:opacity-100
+      group-hover:scale-110"
+  />
+
+</a>
 
         {/* Navigation */}
 
-        <div className="flex items-center gap-10 text-sm font-medium uppercase tracking-wide">
+        <div className="ml-58 flex items-center gap-9">
 
-          <a href="#home" className="nav-link">
-            Home
-          </a>
+          {links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="group relative text-sm font-semibold uppercase tracking-[0.22em] text-gray-600 transition-colors duration-300 hover:text-[#C8A14D]"
+            >
+              {link.name}
 
-          <a href="#my-story" className="nav-link">
-           My Story
-          </a>
+              <span
+                className="
+                absolute
+                -bottom-2
+                left-0
+                h-[2px]
+                w-0
+                rounded-full
+                bg-[#C8A14D]
+                transition-all
+                duration-300
+                group-hover:w-full
+                "
+              />
 
-          <a href="#experience" className="nav-link">
-            Experience
-          </a>
+            </a>
+          ))}
 
-          <a href="#projects" className="nav-link">
-            Projects
-          </a>
-
-          <a href="#resume" className="nav-link">
-            Resume
-          </a>
-
-          <a href="#contact" className="nav-link">
-            Contact
-          </a>
+          <ResumeDropdown/>
 
         </div>
 
-        {/* CTA */}
-
-        {/*<button className="rounded-full bg-blue-600 px-6 py-3 text-white font-semibold transition hover:bg-blue-700">
-          Hire Me
-        </button>*/}
-
       </div>
-
     </nav>
   );
 }

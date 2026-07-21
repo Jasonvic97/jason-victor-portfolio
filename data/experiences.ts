@@ -1,121 +1,116 @@
+import { User, Monitor, Camera, Church } from "lucide-react";
+
 export const experiences = [
   {
     id: 1,
-    title: "Leadership",
-    subtitle: "Warehouse Operations Lead",
+    icon: User,
+    title: "Distribution & Logistics",
+    subtitle: "Operations Leadership",
     description:
-      "Leading teams, improving operations, and creating an environment where people can succeed.",
+      "Leading daily operations, improving workflows, and helping teams work safely and efficiently.",
 
     summary:
       "Leadership is about earning trust, developing people, and creating systems that allow teams to succeed together.",
 
     highlights: [
       "Led warehouse operations",
-      "Mentored employees",
+      "Coordinated daily operations",
       "Improved daily workflows",
-      "Maintained operational efficiency",
+      "Maintained inventory accuracy.",
     ],
 
     skills: [
-      "Leadership",
+      "Team Leadership",
       "Operations",
       "Excel",
       "Training",
+      "Inventroy Control",
+      "Shipping and Receiving"
     ],
-
-    philosophy:
-      "Great leaders create environments where others are empowered to succeed.",
-
-    image: "/images/leadership.jpg",
   },
 
   {
     id: 2,
-    title: "Technology",
-    subtitle: "IT & Continuous Learning",
+    icon: Monitor,
+    title: "Infomation Technology",
+    subtitle: "IT Support & Development",
     description:
       "Learning, building, and solving problems through technology.",
-
+    
     summary:
-      "Technology is more than a career path—it's a passion for understanding how systems work and continuously improving them.",
+      "I enjoy solving problems through technology, building projects, and continuously expanding my skills.",
 
     highlights: [
       "Built a Linux home server",
-      "Studied networking",
       "Built web applications",
       "Explored cybersecurity",
+      "Troubleshot computer issues.",
     ],
 
     skills: [
       "Linux",
       "Networking",
-      "React",
-      "Next.js",
+      "IT Support",
+      "CyberSecurity",
+      "Windows",
     ],
 
-    philosophy:
-      "Never stop learning.",
-
-    image: "/images/technology.jpg",
   },
 
   {
     id: 3,
     title: "Creativity",
+    icon: Camera,
     subtitle: "Victor Visuals",
     description:
-      "Capturing stories through photography, videography, and creative media.",
-
+      "Creating stories through photography, videography, and creative media.",
+    
     summary:
       "Creativity allows me to tell meaningful stories that connect with people and preserve important moments.",
 
     highlights: [
       "Photography",
       "Videography",
-      "Video Editing",
-      "Creative Direction",
+      "Captured live events.",
+      "Created brand visuals",
+      "Operated professional cameras.",
     ],
 
     skills: [
-      "Lightroom",
-      "DaVinci Resolve",
-      "Sony",
       "Storytelling",
+      "Content Creation",
+      "DaVinci Resolve",
+      "Video Editing",
+      "Built Victor Visuals",
     ],
 
-    philosophy:
-      "Every story deserves to be told beautifully.",
-
-    image: "/images/creativity.jpg",
   },
 
   {
     id: 4,
+    icon: Church,
     title: "Community",
-    subtitle: "Church Media Operations",
+    subtitle: "Church Media Volunteer",
     description:
-      "Serving through media production, livestreams, and supporting ministries.",
-
-    summary:
-      "Using technology to help people experience every service clearly and without distraction.",
-
+      "Serving others through volunteer work, mentorship, and meaningful relationships that strengthen the community.",
+    summary: 
+    "For over five years, I've volunteered in church media, supporting live production, audio, livestreams, and youth social media.",
     highlights: [
-      "Livestream Production",
-      "OBS Studio",
-      "Camera Operations",
+      "Supported church media ministries.",
+      "Solved technical challenges.",
+      "Operated Cameara systems operatubs",
       "Media Team Leadership",
+      "Mixed live audio.",
+      "Directed live productions.",
     ],
 
     skills: [
       "OBS",
-      "Livestream",
-      "Leadership",
-      "Production",
+      "Live production",
+      "Audio Mixing",
+      "Content Creation",
+      "Social Media Management",
     ],
 
-    philosophy:
-      "Serve people with excellence.",
-
-    image: "/images/community.jpg",
   },
 ];

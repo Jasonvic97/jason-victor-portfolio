@@ -5,7 +5,7 @@ type ProjectCardProps = {
   title: string;
   description: string;
   technologies: string[];
-  githubLink: string;
+  githubLink?: string;
   liveUrl?: string;
   status: "Completed" | "In Progress";
 };
@@ -20,7 +20,7 @@ export default function ProjectCard({
   status,
 }: ProjectCardProps) {
   return (
-    <div className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg">
 
       {/* Top Row */}
       <div className="mb-6 flex items-center justify-between">
@@ -43,7 +43,6 @@ export default function ProjectCard({
         >
           {status}
         </span>
-
       </div>
 
       {/* Title */}
@@ -68,31 +67,30 @@ export default function ProjectCard({
         ))}
       </div>
 
-      {/* Buttons */}
-      <div className="mt-8 flex gap-4">
+      {/* Action Buttons (Portfolio Only) */}
+      {githubLink && liveUrl && (
+        <div className="mt-8 border-t border-gray-100 pt-6">
+          <div className="flex gap-4">
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold transition hover:bg-gray-100"
+            >
+              GitHub
+            </a>
 
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold transition hover:bg-gray-100"
-        >
-          GitHub
-        </a>
-
-        {liveUrl && (
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
-          >
-            Live Demo
-          </a>
-        )}
-
-      </div>
-
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              View Site
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

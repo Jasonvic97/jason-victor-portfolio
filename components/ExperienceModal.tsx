@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+import { X } from "lucide-react";
 
 type ExperienceModalProps = {
   isOpen: boolean;
@@ -7,8 +11,6 @@ type ExperienceModalProps = {
   summary: string;
   highlights: string[];
   skills: string[];
-  philosophy: string;
-  image: string;
 };
 
 export default function ExperienceModal({
@@ -19,93 +21,114 @@ export default function ExperienceModal({
   summary,
   highlights,
   skills,
-  philosophy,
-  image,
 }: ExperienceModalProps) {
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-
-      <div className="relative w-full max-w-4xl rounded-3xl bg-white p-12 shadow-2xl">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md px-6"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-3xl rounded-3xl bg-white p-12 shadow-2xl"
+      >
+        {/* Close Button */}
 
         <button
           onClick={onClose}
-          className="absolute right-8 top-8 text-3xl text-gray-500 hover:text-black"
+          aria-label="Close modal"
+          className="absolute right-6 top-6 rounded-full p-2 text-gray-500 transition duration-200 hover:bg-gray-100 hover:text-red-600"
         >
-          ×
+          <X size={22} />
         </button>
 
-        <div className="grid grid-cols-2 gap-10">
+        {/* Role */}
 
-          <div className="h-96 rounded-2xl bg-gray-200 flex items-center justify-center">
-            PHOTO
-          </div>
+        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-600">
+          {subtitle}
+        </p>
 
-          <div>
+        {/* Category */}
 
-            <h1 className="text-5xl font-bold">
-              {title}
-            </h1>
+        <h1 className="mt-3 text-5xl font-bold tracking-tight text-gray-900">
+          {title}
+        </h1>
 
-            <h2 className="mt-3 text-xl text-gray-500">
-              {subtitle}
-            </h2>
+        {/* Summary */}
 
-            <p className="mt-8 text-lg leading-8 text-gray-700">
-                {summary}
-            </p>
+        <p className="mt-8 text-xl leading-9 text-gray-600">
+          {summary}
+        </p>
 
-            <div className="mt-10">
+        {/* Highlights */}
 
-              <h3 className="font-bold uppercase tracking-wider">
-                Key Achievements
-                </h3>
-                
-                <ul className="mt-4 space-y-3 text-gray-700">
-                    {highlights.map((item) => ( 
-                    <li key={item}>✓ {item}</li>
-                    ))}
-                 </ul>
+        <section className="mt-14">
 
-                 <div className="mt-10"> 
-                    <h3 className="font-bold uppercase tracking-wider">
-                        Core Skills
-                    </h3>
-                    
-                <div className="mt-4 flex flex-wrap gap-2">
-                    {skills.map((skill) => (
-                        <span
-                            key={skill} 
-                            className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700"
-                        >
-                            {skill}
-                        </span>
-                    ))}
-                </div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
+            Highlights
+          </h2>
 
-            </div>
+          <ul className="mt-6 space-y-4">
 
-            <div className="mt-10">
+            {highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-4 text-lg text-gray-700"
+              >
+                <span className="mt-3 h-1.5 w-1.5 rounded-full bg-black"></span>
 
-                <h3 className="font-bold uppercase tracking-wider">
-                    Leadership Philosophy
-                </h3>
+                <span>{item}</span>
 
-                <p className="mt-4 text-gray-700">
-                    "{philosophy}"
-                </p>
+              </li>
+            ))}
 
-            </div>    
+          </ul>
 
-            </div>
+        </section>
+
+        {/* Skills */}
+
+        <section className="mt-14">
+
+          <div className="flex flex-wrap gap-3">
+
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-blue-200 px-5 py-2 text-sm font-medium text-blue-700 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:text-white"
+              >
+                {skill}
+              </span>
+            ))}
 
           </div>
 
-        </div>
+        </section>
+
+        {/* Philosophy */}
 
       </div>
-
     </div>
   );
 }
